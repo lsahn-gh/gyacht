@@ -1,0 +1,7 @@
+data/com.github.yisooan.gyacht.desktop.in
+data/com.github.yisooan.gyacht.appdata.xml.in
+data/com.github.yisooan.gyacht.gschema.xml
+src/gyacht-window.ui
+src/main.c
+src/gyacht-window.c
+

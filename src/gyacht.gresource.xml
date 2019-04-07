@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/github/yisooan/gyacht">
+    <file>gyacht-container-list-view.ui</file>
+    <file>gyacht-image-list-view.ui</file>
+    <file>gyacht-window.ui</file>
+  </gresource>
+</gresources>

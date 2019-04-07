@@ -1,0 +1,96 @@
+{
+    "app-id": "com.github.yisooan.gyacht",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "3.30",
+    "sdk": "org.gnome.Sdk",
+    "command": "gyacht-devel.sh",
+    "finish-args": [
+        "--share=network",
+        "--share=ipc",
+        "--socket=x11",
+        "--socket=wayland",
+        "--filesystem=xdg-run/dconf",
+        "--filesystem=~/.config/dconf:ro",
+        "--talk-name=ca.desrt.dconf",
+        "--talk-name=org.gtk.vfs.*",
+        "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+    ],
+    "build-options": {
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g",
+        "env": {
+            "V": "1"
+        }
+    },
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "*.la",
+        "*.a"
+    ],
+    "modules": [
+        {
+            "name": "libhandy",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dexamples=false",
+                "-Dglade_catalog=disabled",
+                "-Dintrospection=disabled",
+                "-Dtests=false",
+                "-Dvapi=false"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://source.puri.sm/Librem5/libhandy.git"
+                }
+            ]
+        },
+        {
+            "name": "json-glib",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dintrospection=false"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/json-glib.git",
+                    "tag": "1.4.4"
+                }
+            ]
+        },
+        {
+            "name": "gyacht-devel",
+            "buildsystem": "simple",
+            "build-commands": [],
+            "sources": [
+                {
+                    "type": "file",
+                    "path": "gyacht-devel.sh"
+                }
+            ],
+            "post-install": [
+                "mkdir -p /app/bin",
+                "install -C gyacht-devel.sh /app/bin/gyacht-devel.sh"
+            ]
+        },
+        {
+            "name": "gyacht",
+            "buildsystem": "meson",
+            "config-opts": [],
+            "builddir": true,
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/yisooan/gyacht.git"
+                }
+            ]
+        }
+    ]
+}
