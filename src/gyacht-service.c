@@ -25,8 +25,6 @@
 
 typedef struct
 {
-  GObject         parent_instance;
-
   GyachtRunLevel  level;
   GFileMonitor    *monitor;
   gboolean        error;
