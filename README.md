@@ -8,7 +8,7 @@ and images, and therefore it updates the list box of both immediately.
 
 *Note that errors will be occurred if you haven't installed one of both, Podman and Buildah yet.*
 
-Image: https://imgur.com/708k0fU
+Demo: https://youtu.be/T1h_aqfVagw
 
 ### Quick installation with flatpak
 $ git clone https://github.com/yisooan/gyacht.git  
